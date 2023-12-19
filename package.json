@@ -4,9 +4,13 @@
     "description": "Language server support for the Sc programming language",
     "version": "0.1.0",
     "engines": {
-        "vscode": "^1.84.2"
+        "vscode": "^1.85.0"
     },
     "categories": ["Programming Languages"],
+    "main": "./out/extension",
+    "activationEvents": [
+        "onLanguage:sc"
+    ],
     "dependencies": {
         "vscode-languageclient": "9.0.1"
     },
