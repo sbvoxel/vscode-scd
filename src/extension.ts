@@ -5,19 +5,24 @@ import {
 	LanguageClient,
 	LanguageClientOptions,
 	ServerOptions,
-	TransportKind
+	TransportKind,
+    Executable
 } from 'vscode-languageclient/node';
 
 let client: LanguageClient;
 
 export function activate(context: ExtensionContext) {
-	const serverOptions: ServerOptions = {
-		run: { command: 'ScLsp', transport: TransportKind.ipc },
-	};
+    const serverExecutable: Executable = {
+        command: 'ScLsp',
+        args: [],
+        // options
+        transport: TransportKind.stdio // or ipc
+    };
+
+	const serverOptions: ServerOptions = serverExecutable;
 
 	// Options to control the language client
 	const clientOptions: LanguageClientOptions = {
-		// Register the server for plain text documents
 		documentSelector: [{ scheme: 'file', language: 'sc' }],
 	};
 
