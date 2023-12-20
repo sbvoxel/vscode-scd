@@ -11,6 +11,25 @@
     "activationEvents": [
         "onLanguage:sc"
     ],
+    "contributes": {
+        "configuration": {
+            "type": "object",
+            "title": "Sc Language Server Configuration (?)",
+            "properties": {
+                "sc.trace.server": {
+                    "scope": "window",
+                    "type": "string",
+                    "enum": [
+                        "off",
+                        "messages",
+                        "verbose"
+                    ],
+                    "default": "off",
+                    "description": "Traces the communication between VS Code and the language server."
+                }
+            }
+        }
+    },
     "dependencies": {
         "vscode-languageclient": "9.0.1"
     },
