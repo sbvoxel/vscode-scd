@@ -13,7 +13,7 @@ let client: LanguageClient;
 
 export function activate(context: ExtensionContext) {
     const serverExecutable: Executable = {
-        command: 'ScLsp',
+        command: 'sclsp',
         args: [],
         // options
         transport: TransportKind.stdio // or ipc
@@ -31,7 +31,7 @@ export function activate(context: ExtensionContext) {
 
     // Create the language client and start the client.
     client = new LanguageClient(
-        'ScLsp',
+        'sclsp',
         'Sc Language Server',
         serverOptions,
         clientOptions
