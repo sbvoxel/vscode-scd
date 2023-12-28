@@ -1,5 +1,2 @@
-npm install -g typescript
 npm install -g @vscode/vsce
-
-tsc --project ./
 vsce package
