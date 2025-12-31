@@ -1,0 +1,6 @@
+npm install -g @vscode/vsce
+vsce package
+
+To use the typescript compiler during development (not needed to build the vsce package):
+npm install -g typescript
+tsc -p .

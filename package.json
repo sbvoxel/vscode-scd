@@ -1,0 +1,50 @@
+{
+    "name": "vscode-scd",
+    "displayName": "Scope Language Server",
+    "description": "Language server support for the Scope programming language",
+    "version": "0.1.0",
+    "engines": {
+        "vscode": "^1.85.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "main": "./out/extension",
+    "activationEvents": [
+        "onLanguage:sc"
+    ],
+    "contributes": {
+        "configuration": {
+            "type": "object",
+            "title": "Scope Language Server Configuration (?)",
+            "properties": {
+                "sc.trace.server": {
+                    "scope": "window",
+                    "type": "string",
+                    "enum": [
+                        "off",
+                        "messages",
+                        "verbose"
+                    ],
+                    "default": "off",
+                    "description": "Traces the communication between VS Code and the language server."
+                }
+            }
+        }
+    },
+    "dependencies": {
+        "vscode-languageclient": "9.0.1"
+    },
+    "devDependencies": {
+        "@types/node": "20.10.5",
+        "@types/vscode": "1.85.0",
+        "esbuild": "^0.27.2",
+    },
+    "scripts": {
+        "vscode:prepublish": "npm run esbuild-base -- --minify",
+        "esbuild-base": "esbuild ./src/extension.ts --bundle --outfile=out/extension.js --external:vscode --format=cjs --platform=node",
+        "esbuild": "npm run esbuild-base -- --sourcemap",
+        "esbuild-watch": "npm run esbuild-base -- --sourcemap --watch",
+        "test-compile": "tsc -p ./"
+    }
+}
